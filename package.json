@@ -1,0 +1,35 @@
+{
+  "name": "bform-api",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Swagger API for Bform",
+  "main": "app.js",
+  "scripts": {
+    "swagger": "swagger",
+    "start": "node app.js",
+    "test": "swagger project test",
+    "edit": "swagger project edit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/at15/bform-api.git"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "author": "at15",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/at15/bform-api/issues"
+  },
+  "homepage": "https://github.com/at15/bform-api#readme",
+  "dependencies": {
+    "express": "^4.12.3",
+    "swagger-express-mw": "^0.1.0"
+  },
+  "devDependencies": {
+    "swagger": "^0.7.5",
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
+  }
+}
