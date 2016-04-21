@@ -1,22 +1,53 @@
+---
 swagger: "2.0"
+
+################################################################################
+#                              API Information                                 #
+################################################################################
 info:
-  version: "0.0.1"
-  title: Hello World App
+  version: 0.0.1
+  title: Bform API
+  description:
+    Bform API Beta
+
+################################################################################
+#                  Host, Base Path, Schemes and Content Types                  #
+################################################################################
 # during dev, should point to your local machine
 host: localhost:10010
 # basePath prefixes all resource paths 
-basePath: /
-# 
+basePath: /api/v1
 schemes:
   # tip: remove http to make production-grade
   - http
   - https
-# format of bodies a client can send (Content-Type)
-consumes:
-  - application/json
-# format of the responses to the client (Accepts)
 produces:
   - application/json
+consumes:
+  - application/json
+
+################################################################################
+#                                   Tags                                       #
+################################################################################
+tags:
+  - name: Users
+    description: |
+      User authentication and authorization
+
+################################################################################
+#                                    parameters                                #
+################################################################################
+parameters:
+  id:
+    name: id
+    in: path
+    description: ID
+    type: integer
+    required: true
+
+################################################################################
+#                              Paths                                           #
+################################################################################
 paths:
   /hello:
     # binds a127 app logic to a route
@@ -44,7 +75,10 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
-# complex objects have schema definitions
+
+################################################################################
+#                                 Definitions                                  #
+################################################################################
 definitions:
   HelloWorldResponse:
     required:

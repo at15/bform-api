@@ -25,7 +25,8 @@
   "homepage": "https://github.com/at15/bform-api#readme",
   "dependencies": {
     "express": "^4.12.3",
-    "swagger-express-mw": "^0.1.0"
+    "swagger-express-mw": "^0.1.0",
+    "swagger-tools": "^0.9.11"
   },
   "devDependencies": {
     "js-yaml": "^3.6.0",
