@@ -51,6 +51,8 @@ parameters:
 paths:
   /tokens:
     post:
+      summary: Generate token
+      description: Used for user login
       tags:
         - Users
       parameters:
@@ -65,7 +67,24 @@ paths:
           description: A new token was created
           schema:
             $ref: '#/definitions/Token'
-    # TODO: add delete method to revoke token
+  /tokens/{token}:
+    delete:
+      summary: Remove a token
+      description: Used for user logout, or revoke session on certain devices, like you want to remove a github session on your lab's PC.
+      tags:
+        - Users
+      parameters:
+        - name: token
+          in: path
+          description: value property in Token object
+          required: true
+          type: string
+      responses:
+        # TODO: may use other http status code
+        200:
+          description: The token was removed
+    
+    
   /hello:
     # binds a127 app logic to a route
     x-swagger-router-controller: hello_world
