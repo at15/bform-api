@@ -1,0 +1,13 @@
+# Autodetect text files
+* text=auto
+
+# Force lf for following files
+*.sh text eol=lf
+*.js text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+.gitattributes eol=lf
+
+*.bat text eol=crlf
+

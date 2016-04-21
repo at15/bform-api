@@ -6,24 +6,24 @@ var app = require('express')();
 module.exports = app; // for testing
 
 var config = {
-    appRoot: __dirname // required config
+  appRoot: __dirname // required config
 };
 
 SwaggerExpress.create(config, function (err, swaggerExpress) {
-    if (err) {
-        throw err;
-    }
+  if (err) {
+    throw err;
+  }
 
-    // add swagger-ui
-    app.use(SwaggerUi(swaggerExpress.runner.swagger));
-    
-    // install middleware
-    swaggerExpress.register(app);
+  // add swagger-ui
+  app.use(SwaggerUi(swaggerExpress.runner.swagger));
 
-    var port = process.env.PORT || 10010;
-    app.listen(port);
+  // install middleware
+  swaggerExpress.register(app);
 
-    if (swaggerExpress.runner.swagger.paths['/hello']) {
-        console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/hello?name=Scott');
-    }
+  var port = process.env.PORT || 10010;
+  app.listen(port);
+
+  if (swaggerExpress.runner.swagger.paths['/hello']) {
+    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/hello?name=Scott');
+  }
 });
