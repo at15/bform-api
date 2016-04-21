@@ -49,6 +49,23 @@ parameters:
 #                              Paths                                           #
 ################################################################################
 paths:
+  /tokens:
+    post:
+      tags:
+        - Users
+      parameters:
+        - name: auth
+          in: body
+          description: User auth information, name could be 'user name', 'email','mobile phone'
+          required: true
+          schema:
+            $ref: '#/definitions/UserCredential'
+      responses:
+        201:
+          description: A new token was created
+          schema:
+            $ref: '#/definitions/Token'
+    # TODO: add delete method to revoke token
   /hello:
     # binds a127 app logic to a route
     x-swagger-router-controller: hello_world
@@ -80,6 +97,29 @@ paths:
 #                                 Definitions                                  #
 ################################################################################
 definitions:
+  UserCredential:
+    type: object
+    properties:
+      name:
+        type: string
+      password:
+        type: string
+        format: password
+  Token:
+    type: object
+    properties:
+      type:
+        type: integer
+      value:
+        type: string
+      issue:
+        type: string
+        format: date-time
+      expire:
+        type: string
+        format: date-time
+      device:
+        type: string
   HelloWorldResponse:
     required:
       - message
