@@ -51,8 +51,9 @@ parameters:
 paths:
   /tokens:
     post:
-      summary: Generate token
-      description: Used for user login
+      summary: create a new token using name and passowrd
+      description:
+        Used as login session for browser and for Mobile application as well.
       tags:
         - Users
       parameters:
@@ -69,21 +70,18 @@ paths:
             $ref: '#/definitions/Token'
   /tokens/{token}:
     delete:
-      summary: Remove a token
-      description: Used for user logout, or revoke session on certain devices, like you want to remove a github session on your lab's PC.
-      tags:
-        - Users
+      summary: revoke a token
       parameters:
         - name: token
           in: path
-          description: value property in Token object
+          description: The token you want to revoke
           required: true
           type: string
+      description: 
+        You don't want to keep your login state on certain device, you can revoke them. Just like GitHub
       responses:
-        # TODO: may use other http status code
         200:
-          description: The token was removed
-    
+          description: OK
     
   /hello:
     # binds a127 app logic to a route
