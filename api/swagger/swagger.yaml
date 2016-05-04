@@ -71,6 +71,8 @@ paths:
   /tokens/{token}:
     delete:
       summary: revoke a token
+      tags:
+        - Users
       parameters:
         - name: token
           in: path

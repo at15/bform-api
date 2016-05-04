@@ -13,7 +13,10 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
   if (err) {
     throw err;
   }
-
+  
+  // change host
+  swaggerExpress.runner.swagger.host = 'bform.lk:8080';
+  
   // add swagger-ui
   app.use(SwaggerUi(swaggerExpress.runner.swagger));
 
